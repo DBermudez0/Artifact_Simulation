@@ -83,7 +83,7 @@ def Gen_phase_encoding_artif(dname = str, min_disc = int, max_disc = int, slice_
     plt.axis('off')
     plt.show()
     
-  if __name__ == '__Gen_phase_encoding_artif__":
+  if __name__ == "__Gen_phase_encoding_artif__":
     Gen_phase_encoding_artif(dname = str, min_disc = int, max_disc = int, slice_num = int)
     
         
