@@ -3,6 +3,11 @@ def Gen_phase_encoding_artif(dname = str, min_disc = int, max_disc = int, slice_
   
   Author: Dalton H Bermudez
   
+  * >> import Gen_phase_encoding_artif as Gen_artif
+  * >> Gen_artif.Gen_phase_encoding_artif(dname = str, min_disc = int, max_disc = int, slice_num = int)
+  * >> help(Gen_artif.Gen_phase_encoding_artif)
+  ** use help() to see description of function in Python Shell
+  
   Purpose: To simulate the motion artifacts encounter in the MRI images. These
   artifacts, unlike the motion artifacts encounter in CT, are based on distortion
   in the k-space rather than in the radon space. The current script can only read
@@ -32,7 +37,7 @@ def Gen_phase_encoding_artif(dname = str, min_disc = int, max_disc = int, slice_
   import scipy.fftpack as fftpack
   
   import warnings
-  warinings.filterwarnings("ignore")
+  warnings.filterwarnings("ignore")
   
   mri_img = nib.load(dname)
   mri_data = mri_img.get_data()
@@ -70,7 +75,7 @@ def Gen_phase_encoding_artif(dname = str, min_disc = int, max_disc = int, slice_
     plt.imshow(mri_data_image[:,:,slice_num], cmap = 'gray', origin = 'lower')
     plt.title('Real MRI image')
     plt.axis('off')
-    plt.subtitle('Simulated Phase encoding based motion artifact with discontinuities of ' + str(int(r)), fontsize=16)
+    plt.suptitle('Simulated Phase encoding based motion artifact with discontinuities of ' + str(int(r)), fontsize=16)
     
     plt.subplot(132)
     plt.imshow(img_artif[:,:,slice_num], cmap = 'gray', origin = 'lower')
